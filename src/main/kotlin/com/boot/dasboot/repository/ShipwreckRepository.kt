@@ -1,8 +1,8 @@
 package com.boot.dasboot.repository
 
 import com.boot.dasboot.model.Shipwreck
-import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.data.mongodb.repository.MongoRepository
 
-interface ShipwreckRepository : JpaRepository<Shipwreck, Long>{
+interface ShipwreckRepository : MongoRepository<Shipwreck, String>{
 
 }

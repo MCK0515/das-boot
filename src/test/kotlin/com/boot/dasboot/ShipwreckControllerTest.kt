@@ -3,6 +3,7 @@ package com.boot.dasboot
 import com.boot.dasboot.controller.ShipwreckController
 import com.boot.dasboot.model.Shipwreck
 import com.boot.dasboot.repository.ShipwreckRepository
+import org.bson.types.ObjectId
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.`is`
 import org.hamcrest.Matchers.equalTo
@@ -13,6 +14,7 @@ import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.Mockito.*
 import org.mockito.MockitoAnnotations
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.repository.findByIdOrNull
 import java.util.*
 import kotlin.test.assertEquals
@@ -32,13 +34,13 @@ class ShipwreckControllerTest{
 
     @Test
     fun testShipwreckTest(){
-        val sw = Shipwreck()
-        sw.id=1L
-        `when`(shipwreckRepository.findById(1L)).thenReturn(Optional.of(sw))
-        val wreck: Shipwreck = sc.get(1)
+        val sw = Shipwreck(("1"),"","","",0,0.0,0.0,0)
 
-        verify(shipwreckRepository).findById(1L)
+        `when`(shipwreckRepository.findById("1")).thenReturn(Optional.of(sw))
+        val wreck: Shipwreck = sc.get("1")
+
+        verify(shipwreckRepository).findById("1")
         //assertEquals(1L, wreck.id.toLong())
-        assertThat(wreck.id, `is`(1L))
+        assertThat(wreck.id, `is`(("1")))
     }
 }
