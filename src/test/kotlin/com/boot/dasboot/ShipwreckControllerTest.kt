@@ -3,7 +3,6 @@ package com.boot.dasboot
 import com.boot.dasboot.controller.ShipwreckController
 import com.boot.dasboot.model.Shipwreck
 import com.boot.dasboot.repository.ShipwreckRepository
-import org.bson.types.ObjectId
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.`is`
 import org.hamcrest.Matchers.equalTo

@@ -1,13 +1,16 @@
 package com.boot.dasboot.model
 
-import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
-import org.springframework.data.annotation.TypeAlias
+import javax.persistence.Entity
+import javax.persistence.GeneratedValue
+import javax.persistence.GenerationType
+import javax.persistence.Table
 
-@TypeAlias("shipwreck")
-data class Shipwreck(
-
+@Entity
+@Table(name = "shipwreck")
+data class Shipwreck (
         @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         val id: String? = null,
         var name: String,
         var description: String,

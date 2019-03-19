@@ -24,7 +24,7 @@ class ShipwreckController{
 
 
     @PostMapping("/shipwrecks")
-    fun create(@RequestBody shipwreck: Shipwreck): Shipwreck = shipwreckRepository.save(shipwreck)
+    fun create(@RequestBody shipwreck: Shipwreck): Shipwreck = shipwreckRepository.saveAndFlush(shipwreck)
 
 
     @PutMapping("/shipwrecks/{id}")
@@ -32,7 +32,7 @@ class ShipwreckController{
 
         val existingShipwreck: Shipwreck = shipwreckRepository.findById(id).orElse(null)
         BeanUtils.copyProperties(shipwreck, existingShipwreck)
-        return shipwreckRepository.save(existingShipwreck)
+        return shipwreckRepository.saveAndFlush(existingShipwreck)
     }
 
     @DeleteMapping("/shipwrecks/{id}")
